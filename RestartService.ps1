@@ -10,7 +10,7 @@ ForEach ($item in $services) {
     if($item.Name -eq $serviceName) {
         Write-Host $serviceName "process has been FOUND" -ForegroundColor green
 
-        Stop-Service -Name $serviceName
+        Stop-Service $item
 
         #Restart-Service
         if($item.Status -eq "Stopped") {
