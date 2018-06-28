@@ -1,6 +1,6 @@
 ﻿#Name of the service we want to kill and restart
 
-$serviceName = "AudioSrv" #change this to whatever servicename you want. 
+$serviceName = "AudioSrv" #change this to whatever service name you want. 
 #Please check the service name by typing 'Get-Service' on your own Powershell instance
 
 $services = Get-Service
@@ -27,7 +27,7 @@ ForEach ($item in $services) {
             }
 
         } else {
-            Write-Host "The service" $item "did not STOP, do you have the correct permissions?" -ForegroundColor red
+            Write-Host "The service" $item "did not STOP, are you running the script as an Admin?" -ForegroundColor red
         }
         $count++
         break
