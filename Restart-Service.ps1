@@ -1,5 +1,5 @@
 #Name of the service we want to kill and restart
-#change this to whatever servicename you want. 
+#change this to whatever service-name you want. 
 #Please check the service name by typing 'Get-Service' on your own Powershell instance
 Param(
     [string]$serviceName = 'AudioSrv'
