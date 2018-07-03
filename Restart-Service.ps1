@@ -32,7 +32,7 @@ ForEach ($item in $services) {
             }
 
         } else {
-            Write-Host "The service" $item "did not STOP, do you have the correct permissions?" -ForegroundColor red
+            Write-Host "The service" $item "did not STOP, are you running the script as an Admin?" -ForegroundColor red
         }
         $count++
         break
