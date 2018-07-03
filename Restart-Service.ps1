@@ -1,13 +1,13 @@
 # $serviceName holds the name of the service you want to restart
 # To get the name of the service you can run the command below
 #   (This is just an example, and it will show the full service name)
-#   get-service -name Audio* | ForEach { $_.name } 
+#   Get-Service -Name Audio* | ForEach { $_.Name } 
 
 Param(
     [string]$serviceName = 'AudioSrv'
 )
 
-$services = Get-Service
+$services = GetNervice
 $count = 0
 
 ForEach ($item in $services) {
