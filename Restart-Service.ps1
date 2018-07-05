@@ -11,7 +11,7 @@ Param(
     [string]$serviceName = 'AudioSrv'
 )
 
-$services = GetNervice
+$services = Get-Service
 $count = 0
 
 ForEach ($item in $services) {
