@@ -2,6 +2,10 @@
 # To get the name of the service you can run the command below
 #   (This is just an example, and it will show the full service name)
 #   Get-Service -Name Audio* | ForEach { $_.Name } 
+# You can also run it and enter the service name
+# From Powershell you can go to the dir you saved the script in and type something like
+#    .\Restart-Service -serviceName nameOfYourServiceHere
+#    *example* .\Restart-Service -serviceName AudioSrv
 
 Param(
     [string]$serviceName = 'AudioSrv'
