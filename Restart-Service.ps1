@@ -4,8 +4,8 @@
 #   Get-Service -Name Audio* | ForEach { $_.Name } 
 # You can also run it and enter the service name
 # From Powershell you can go to the dir you saved the script in and type something like
-#    .\Restart-Service -serviceName nameOfYourServiceHere
-#    *example* .\Restart-Service -serviceName AudioSrv
+#    .\Restart-Service nameOfYourServiceHere
+#    *example* .\Restart-Service AudioSrv
 
 Param(
     [string]$serviceName = 'AudioSrv'
