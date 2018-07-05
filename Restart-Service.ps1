@@ -4,9 +4,8 @@
 #   Get-Service -Name Audio* | ForEach { $_.Name } 
 # You can also run it and enter the service name
 # From Powershell you can go to the dir you saved the script in and type something like
-#    .\Restart-Service nameOfYourServiceHere
+#    .\Restart-Service YourServiceHere
 #    *example* .\Restart-Service AudioSrv
-
 Param(
     [string]$serviceName = 'AudioSrv'
 )
@@ -16,14 +15,14 @@ $count = 0
 
 ForEach ($item in $services) {
     if($item.Name -eq $serviceName) {
-        Write-Host $serviceName "process has been FOUND" -ForegroundColor green
+        Write-Host $serviceName "service has been FOUND" -ForegroundColor green
 
         if($item.Status -eq "Running") {
-            Write-Host $item "process is currently RUNNING"
+            Write-Host $item "service is currently RUNNING"
             Stop-Service $item
         }
         if($item.Status -eq "Stopped") { #I check this regardless
-            Write-Host $item "process has been STOPPED" -ForegroundColor Red
+            Write-Host $item "service has been STOPPED" -ForegroundColor Red
             
             Start-Service $item
 
