@@ -6,6 +6,7 @@
 # From Powershell you can go to the dir you saved the script in and type something like
 #    .\Restart-Service YourServiceHere
 #    *example* .\Restart-Service AudioSrv
+
 Param(
     [string]$serviceName = 'AudioSrv'
 )
