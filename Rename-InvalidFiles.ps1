@@ -1,13 +1,10 @@
-﻿Param (
-    $path = 'C:\Users\triley\Desktop\BL Files'
+Param (
+    #$path = 'Z:\BL'
+    $path = '\\mischa\data\BL'
     )
 #$fileNames = Get-ChildItem -Path $scriptPath -Recurse
+Write-Host "Indexing $path" -ForegroundColor Blue
 $fileListMain = Get-ChildItem -Path $path -Recurse 
-
-####################################CALL FUNCTIONS HERE#################################
-RenameFilesOnly($fileListMain)
-#RenameAll($fileListMain)
-########################################################################################
 
 #This function takes a list of files
 #And will rename all files & folders
@@ -16,11 +13,16 @@ function RenameAll($fileList) {
     Write-Host "Searching dir:" $path
     ForEach ($fileName in $fileList) {
          if($fileName.Name[0] -ne ".") {
+            Write-Host $fixedName;
             $fixedName = $fileName.Name
 
-            $fixedName = $fixedName.Replace("#","")
+            $fixedName = $fixedName.Replace("#","Nos")
+
+            $fixedName = $fixedName.Replace("~","")
+            $fixedName = $fixedName.Replace("&"," and ")
+            $fixedName = $fixedName.Replace("{","")
+            $fixedName = $fixedName.Replace("}","")
             $fixedName = $fixedName.Replace("%","")
-            #Write-Host $fileName.FullName
             Rename-Item -LiteralPath $fileName.FullName $fixedName
 
         }
@@ -43,7 +45,11 @@ function RenameFilesOnly($fileList) {
             if($fileName.Name[0] -ne '.') {
                 $fixedName = $fileName.Name
 
-                $fixedName = $fixedName.Replace("#","")
+                $fixedName = $fixedName.Replace("#","Nos")
+                $fixedName = $fixedName.Replace("~","")
+                $fixedName = $fixedName.Replace("&"," and ")
+                $fixedName = $fixedName.Replace("{","")
+                $fixedName = $fixedName.Replace("}","")
                 $fixedName = $fixedName.Replace("%","")
                 Rename-Item -LiteralPath $fileName.FullName $fixedName
             }
@@ -51,3 +57,8 @@ function RenameFilesOnly($fileList) {
     }
     Write-Host "File Renaming Complete!" -ForegroundColor Green
 }
+
+####################################CALL FUNCTIONS HERE#################################
+RenameFilesOnly($fileListMain)
+#RenameAll($fileListMain)
+########################################################################################
