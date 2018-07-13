@@ -1,3 +1,4 @@
+#Author: Taylor Riley (Tursko)
 # $serviceName holds the name of the service you want to restart
 # To get the name of the service you can run the command below
 #   (This is just an example, and it will show the full service name)
