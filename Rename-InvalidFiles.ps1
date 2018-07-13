@@ -1,6 +1,6 @@
 Param (
     #$path = 'Z:\BL'
-    $path = '\\mischa\data\BL'
+    $path = '\\x\data\BL'
     )
 #$fileNames = Get-ChildItem -Path $scriptPath -Recurse
 Write-Host "Indexing $path" -ForegroundColor Blue
