@@ -1,4 +1,6 @@
-﻿$services = Get-Service
+#Author: Taylor Riley (Tursko)
+
+$services = Get-Service
 $countR = 0
 $countS = 0
 $countTotal = 0
