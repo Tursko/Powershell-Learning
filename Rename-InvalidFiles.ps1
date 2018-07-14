@@ -1,10 +1,8 @@
 #Author: Taylor Riley (Tursko)
 
 Param (
-    #$path = 'Z:\BL'
     $path = '\\x\data\BL'
     )
-#$fileNames = Get-ChildItem -Path $scriptPath -Recurse
 Write-Host "Indexing $path" -ForegroundColor Blue
 $fileListMain = Get-ChildItem -Path $path -Recurse 
 
