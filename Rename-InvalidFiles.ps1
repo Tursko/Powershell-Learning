@@ -1,8 +1,7 @@
-#Author: Taylor Riley (Tursko)
-
 Param (
-    $path = '\\x\data\BL'
+    $path = ''
     )
+#$fileNames = Get-ChildItem -Path $scriptPath -Recurse
 Write-Host "Indexing $path" -ForegroundColor Blue
 $fileListMain = Get-ChildItem -Path $path -Recurse 
 
@@ -23,6 +22,7 @@ function RenameAll($fileList) {
             $fixedName = $fixedName.Replace("{","")
             $fixedName = $fixedName.Replace("}","")
             $fixedName = $fixedName.Replace("%","")
+            $fixedName = $fixedName.Replace(".","-")
             Rename-Item -LiteralPath $fileName.FullName $fixedName
 
         }
@@ -51,6 +51,7 @@ function RenameFilesOnly($fileList) {
                 $fixedName = $fixedName.Replace("{","")
                 $fixedName = $fixedName.Replace("}","")
                 $fixedName = $fixedName.Replace("%","")
+                $fixedName = $fixedName.Replace(".","-")
                 Rename-Item -LiteralPath $fileName.FullName $fixedName
             }
         }
