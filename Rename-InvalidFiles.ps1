@@ -4,7 +4,6 @@
 Param (
     $path = ''
     )
-#$fileNames = Get-ChildItem -Path $scriptPath -Recurse
 Write-Host "Indexing $path" -ForegroundColor Blue
 $fileListMain = Get-ChildItem -Path $path -Recurse 
 
