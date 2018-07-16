@@ -19,7 +19,6 @@ function RenameAll($fileList) {
             $fixedName = $fileName.Name
 
             $fixedName = $fixedName.Replace("#","Nos")
-
             $fixedName = $fixedName.Replace("~","")
             $fixedName = $fixedName.Replace("&"," and ")
             $fixedName = $fixedName.Replace("{","")
