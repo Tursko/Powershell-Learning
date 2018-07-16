@@ -25,7 +25,6 @@ function RenameAll($fileList) {
             $fixedName = $fixedName.Replace("{","")
             $fixedName = $fixedName.Replace("}","")
             $fixedName = $fixedName.Replace("%","")
-            #$fixedName = $fixedName.Replace(".","-")
             Rename-Item -LiteralPath $fileName.FullName $fixedName
 
         }
@@ -54,7 +53,6 @@ function RenameFilesOnly($fileList) {
                 $fixedName = $fixedName.Replace("{","")
                 $fixedName = $fixedName.Replace("}","")
                 $fixedName = $fixedName.Replace("%","")
-                #$fixedName = $fixedName.Replace(".","-")
                 Rename-Item -LiteralPath $fileName.FullName $fixedName
             }
         }
