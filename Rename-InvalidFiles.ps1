@@ -1,3 +1,5 @@
+#Author: Taylor Riley (Tursko)
+
 Param (
     $path = ''
     )
