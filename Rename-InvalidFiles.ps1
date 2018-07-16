@@ -15,7 +15,6 @@ function RenameAll($fileList) {
     Write-Host "Searching dir:" $path
     ForEach ($fileName in $fileList) {
          if($fileName.Name[0] -ne ".") {
-            Write-Host $fixedName;
             $fixedName = $fileName.Name
 
             $fixedName = $fixedName.Replace("#","Nos")
