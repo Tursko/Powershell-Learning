@@ -1,4 +1,5 @@
 #Author: Taylor Riley (Tursko)
+#http://github.com/Tursko
 
 Param (
     $path = ''
