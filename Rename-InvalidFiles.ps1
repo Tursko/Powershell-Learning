@@ -2,32 +2,10 @@
 #http://github.com/Tursko
 
 Param (
-    $path = ''
+    $path = 'C:\Users\triley\Desktop\DateData'
     )
 Write-Host "Indexing $path" -ForegroundColor Blue
 $fileListMain = Get-ChildItem -Path $path -Recurse 
-
-#This function takes a list of files
-#And will rename all files & folders
-function RenameAll($fileList) {
-    Write-Host "Renaming All Files...." -ForegroundColor Green
-    Write-Host "Searching dir:" $path
-    ForEach ($fileName in $fileList) {
-         if($fileName.Name[0] -ne ".") {
-            $fixedName = $fileName.Name
-
-            $fixedName = $fixedName.Replace("#","Nos")
-            $fixedName = $fixedName.Replace("~","")
-            $fixedName = $fixedName.Replace("&"," and ")
-            $fixedName = $fixedName.Replace("{","")
-            $fixedName = $fixedName.Replace("}","")
-            $fixedName = $fixedName.Replace("%","")
-            Rename-Item -LiteralPath $fileName.FullName $fixedName
-
-        }
-    }
-    Write-Host "File Renaming Complete!" -ForegroundColor Green
-}
 
 #100% functional!
 #This function takes a list of files
@@ -39,8 +17,7 @@ function RenameFilesOnly($fileList) {
         #We don't care about the actual file names. 
         if($fileName.Attributes -match 'Directory') {
             continue
-        }
-        else {
+        }else {
             if($fileName.Name[0] -ne '.') {
                 $fixedName = $fileName.Name
 
@@ -50,7 +27,11 @@ function RenameFilesOnly($fileList) {
                 $fixedName = $fixedName.Replace("{","")
                 $fixedName = $fixedName.Replace("}","")
                 $fixedName = $fixedName.Replace("%","")
+                $fixedname = $fixedName -replace '([0-9][0-9])\.([0-9][0-9])\.([0-9][0-9])', '$1-$2-$3'
+                $fixedname = $fixedName -replace '([0-9])\.([0-9][0-9])\.([0-9][0-9])', '0$1-$2-$3'
+                $fixedname = $fixedName -replace '([0-9])\.([0-9])\.([0-9][0-9])', '0$1-0$2-$3'
                 Rename-Item -LiteralPath $fileName.FullName $fixedName
+           
             }
         }
     }
@@ -59,5 +40,4 @@ function RenameFilesOnly($fileList) {
 
 ####################################CALL FUNCTIONS HERE#################################
 RenameFilesOnly($fileListMain)
-#RenameAll($fileListMain)
 ########################################################################################
