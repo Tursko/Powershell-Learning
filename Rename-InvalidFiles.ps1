@@ -2,7 +2,7 @@
 #http://github.com/Tursko
 
 Param (
-    $path = 'C:\Users\triley\Desktop\DateData'
+    $path = 'C:\Users\t\Desktop\DateData'
     )
 Write-Host "Indexing $path" -ForegroundColor Blue
 $fileListMain = Get-ChildItem -Path $path -Recurse 
